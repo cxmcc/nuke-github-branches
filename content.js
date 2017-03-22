@@ -57,8 +57,9 @@
 
     var that = this;
     var detect = function() {
-      if (that.old_path != window.location.pathname) {
-        that.old_path = window.location.pathname;
+      var curr_path = window.location.pathname;
+      if (that.old_path != curr_path) {
+        that.old_path = curr_path;
         setTimeout(render, 1000);
       }
     };
