@@ -35,5 +35,31 @@
     nav.prepend(create_button('☢ Closed', function(){nuke('state-closed')}));
   }
 
-  append_buttons();
+  var render = function() {
+    var url = window.location.pathname;
+    var is_branch_page = url.endsWith('/branches') ||
+                         url.endsWith('/branches/yours') ||
+                         url.endsWith('/branches/stale') ||
+                         url.endsWith('/branches/all') ||
+                         url.endsWith('/branches/active');
+    if (is_branch_page) {
+      append_buttons();
+    }
+  }
+
+  function pathChange(){
+    this.old_path = window.location.pathname;
+    this.interval;
+
+    var that = this;
+    var detect = function() {
+      if (that.old_path != window.location.pathname){
+        that.old_path = window.location.pathname;
+        setTimeout(render, 1000);
+      }
+    };
+    this.interval = setInterval(detect, 100);
+  }
+  var pc = new pathChange();
+  $(document).ready(render);
 })();

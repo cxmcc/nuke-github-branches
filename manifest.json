@@ -12,7 +12,7 @@
   },
   "content_scripts": [
     {
-      "matches": ["*://github.com/*/branches*"],
+      "matches": ["*://github.com/*"],
       "js": ["jquery-3.2.0.min.js", "content.js"],
       "run_at": "document_idle"
     }
