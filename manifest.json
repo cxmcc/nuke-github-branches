@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+
+  "name": "Nuke Github Branches",
+  "description": "Provide a few buttons for you to nuke some github branches",
+  "version": "1.0",
+  "author": "Xiuming Chen",
+  "homepage_url": "https://github.com/cxmcc/nuke-github-branches",
+
+  "browser_action": {
+    "default_icon": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://github.com/*/branches*"],
+      "js": ["jquery-3.2.0.min.js", "content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
