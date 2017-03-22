@@ -24,7 +24,7 @@
   };
 
   var create_button = function(text, func) {
-    var li = $('<li>');
+    var li = $('<li>', {class: 'nuke-github-branches'});
     var a = $('<a>', {class: 'btn btn-sm btn-danger js-menu-target'});
     a.text(text);
     a.click(func);
@@ -33,6 +33,8 @@
   };
 
   var append_buttons = function() {
+    if ($('.nuke-github-branches').length !== 0)
+      return;
     var nav = $('.pagehead-actions');
     nav.prepend(create_button('☢ All', nuke_all));
     nav.prepend(create_button('☢ Merged', function() {nuke('state-merged')}));
