@@ -3,7 +3,7 @@
 
   "name": "Nuke Github Branches",
   "description": "Provide a few buttons for you to nuke some github branches",
-  "version": "1.0",
+  "version": "1.1",
   "author": "Xiuming Chen",
   "homepage_url": "https://github.com/cxmcc/nuke-github-branches",
 
