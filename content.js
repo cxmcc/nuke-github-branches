@@ -8,6 +8,7 @@
         var a = $(first_child.children[1]);
         if (a.hasClass(state)) {
           var form = this.children[1];
+          if (form === undefined) return;
           var button = form.children[1];
           $(button).click();
         }
