@@ -4,7 +4,7 @@ JS_FILES=jquery-3.2.0.min.js content.js
 
 all: $(RELEASE)
 
-$(RELEASE):
+$(RELEASE): $(SOURCES)
 	zip $(RELEASE) $(SOURCES)
 
 clean:
