@@ -6,15 +6,15 @@
       var first_child = this.children[0];
       if (first_child === undefined)
         return;
-      if ($(first_child).attr('class') === 'pr-details') {
-        var a = $(first_child.children[1]);
-        if (a.hasClass(state)) {
-          var form = this.children[1];
-          if (form === undefined)
-            return;
-          var button = form.children[1];
-          $(button).click();
-        }
+      if ($(first_child).attr('class') !== 'd-inline-block text-right')
+        return;
+      var a = $(first_child.children[1]);
+      if (a.hasClass(state)) {
+        var form = this.children[1];
+        if (form === undefined)
+          return;
+        var button = form.children[1];
+        $(button).click();
       }
     });
   };
@@ -37,8 +37,8 @@
       return;
     var nav = $('.pagehead-actions');
     nav.prepend(create_button('☢ All', nuke_all));
-    nav.prepend(create_button('☢ Merged', function() {nuke('state-merged')}));
-    nav.prepend(create_button('☢ Closed', function() {nuke('state-closed')}));
+    nav.prepend(create_button('☢ Merged', function() {nuke('State--purple')}));
+    nav.prepend(create_button('☢ Closed', function() {nuke('State--red')}));
   };
 
   var render = function() {
